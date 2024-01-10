@@ -35,8 +35,11 @@ public class EjerciciosCadenas {
         nombre = "carlxxx";
         System.out.println("El nombre "+nombre+((nombre.length() >= 4 && nombre.substring(3).contains("x"))?" contiene caracteres x":" no contiene caracteres x")+" a partir de la 4ta posición");
         // e. Crear una cadena formada por las 5 primeras posiciones de la cadena.
-        
+        String nuevaCadenaDe5 = nombre.substring(0, Math.min(nombre.length(), 5));
+        System.out.println(nuevaCadenaDe5);
         // f. Crear una cadena formada por las 5 últimas posiciones de la cadena.
+        String nuevaCadenaUltimas5 = nombre.substring(Math.max(0, nombre.length()-5));
+        System.out.println(nuevaCadenaUltimas5);
         // g. Decir si la cadena es igual a la cadena “hola”.
         // h. Convertir la cadena de entrada a una variable de tipo int, suponiendo que dicha cadena es un número, esto es, contiene solo dígitos decimales (del 0 a 9)
         // i. Convertir la cadena de entrada a una variable de tipo int, suponiendo que dicha cadena es un número hexadecimal, esto es, contiene solo dígitos decimales (del 0 a 9) y letras de la A a F.
