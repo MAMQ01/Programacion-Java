@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ParteDosVectores",
+            "request": "launch",
+            "mainClass": "Unidad8Java.ParteDosVectores",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "ParteDosVectores",
+            "request": "launch",
+            "mainClass": "Unidad8Java.ParteDosVectores",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
             "name": "Vectores",
             "request": "launch",
             "mainClass": "Unidad8Java.Vectores",
