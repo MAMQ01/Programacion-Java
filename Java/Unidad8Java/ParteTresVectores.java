@@ -129,25 +129,37 @@ public class ParteTresVectores {
         int numeroDePersonas = sc.nextInt();
         double mediaSalarioHombre = 0;
         double mediaSalarioMujer = 0;
+        int cantidadHombres = 0;
+        int cantidadMujeres = 0;
         
         double[][] matrizSueldos = new double[numeroDePersonas][2];
-        for (int persona = 0; persona < matrizSueldos[persona].length; persona++) {
+        for (int persona = 0; persona < numeroDePersonas; persona++) {
             System.out.println("Ingrese (0 si es hombre y 1 si es mujer)");
             int genero = sc.nextInt();
             System.out.println("Ingrese su salario");
             double salario = sc.nextDouble();
-            for (int i = 0; i < matrizSueldos.length; i++) {
-                if(genero==0){
-                    matrizSueldos[persona][0]=salario;
-                } else if (genero==1) {
-                    matrizSueldos[persona][1]=salario;
-                } else {
-                    System.err.println("Introdujo un valor no válido");
-                }
+            if(genero==0){
+                matrizSueldos[persona][0]=salario;
+                cantidadHombres++;
+                mediaSalarioHombre = (mediaSalarioHombre + matrizSueldos[persona][0]) / (cantidadHombres);
+            } else if (genero==1) {
+                matrizSueldos[persona][1]=salario;
+                cantidadMujeres++;
+                mediaSalarioMujer = (mediaSalarioMujer + matrizSueldos[persona][1]) / (cantidadMujeres);
+            } else {
+                System.err.println("Introdujo un valor no válido");
+                persona--;
             }
-            mediaSalarioHombre = (mediaSalarioHombre + matrizSueldos[persona][0]) / (persona+1);
         }
 
-        System.out.println("La media del salario de los hombres es: "+mediaSalarioHombre);
+        System.out.println("La media del salario de los hombres es: " + mediaSalarioHombre);
+        System.out.println("La media del salario de las mujeres es: " + mediaSalarioMujer);
+        if(mediaSalarioMujer < mediaSalarioHombre){
+            System.out.println("Hay brecha a favor de los hombres");
+        } else if (mediaSalarioHombre < mediaSalarioMujer){
+            System.out.println("Hay brecha a favor de las mujeres");
+        } else {
+            System.out.println("No hay brecha salarial");
+        }
     }
 }
