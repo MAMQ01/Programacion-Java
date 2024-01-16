@@ -39,33 +39,33 @@ public class ParteDosVectores {
                 "b. Introducir valor.%n" + //
                 "c. Salir. %n");
             valorIntroducido = sc.nextLine().toLowerCase();
-                    switch (valorIntroducido) {
-                        case "a":
-                        System.out.println("Logica A");
-                        for (int i : arayDiezEnteros) {
-                            System.out.println(Arrays.toString(arayDiezEnteros));
-                        }
-                            break;
-                        case "b":
-                        System.out.println("Logica B");
-                        System.out.println("Introduzca el Valor");
-                        int V = sc.nextInt();
-                        System.out.println("Introduzca la Posición");
-                        int P = sc.nextInt();
-                        if (P>=0 && P<=99) {
-                            arayDiezEnteros[P]=V;
-                        }
-                            break;
-                        case "c":
-                            System.out.println("Logica C");
-                            break;
-                        default:
-                            System.err.println("Introdujo una opcion incorrecta.");
-                            break;
+                switch (valorIntroducido) {
+                    case "a":
+                    System.out.println("Logica A");
+                    for (int i : arayDiezEnteros) {
+                        System.out.println(Arrays.toString(arayDiezEnteros));
                     }
-                    if(valorIntroducido.equals(opcionSalir)){
-                        salida=true;
+                        break;
+                    case "b":
+                    System.out.println("Logica B");
+                    System.out.println("Introduzca el Valor");
+                    int V = sc.nextInt();
+                    System.out.println("Introduzca la Posición");
+                    int P = sc.nextInt();
+                    if (P>=0 && P<=99) {
+                        arayDiezEnteros[P]=V;
                     }
+                        break;
+                    case "c":
+                        System.out.println("Logica C");
+                        break;
+                    default:
+                        System.err.println("Introdujo una opcion incorrecta.");
+                        break;
+                }
+                if(valorIntroducido.equals(opcionSalir)){
+                    salida=true;
+                }
         } while (!salida);
     }
 
@@ -198,6 +198,37 @@ public class ParteDosVectores {
         }
     }
 
+    public static void reversaUnArrayOrdenado(int[] array){
+        for (int i = array.length - 1; i >= 0; i--) {
+            System.out.println(array[i]);
+        }
+        
+    }
+
+    static void invertirArray(int[] array) {
+        int longitud = array.length;
+        for (int i = 0; i < longitud / 2; i++) {
+            // Intercambiar elementos simétricos desde ambos extremos
+            int temp = array[i];
+            array[i] = array[longitud - 1 - i];
+            array[longitud - 1 - i] = temp;
+            System.out.println(Arrays.toString(array));
+        }
+    }
+
+    public static int[] pidePuntuacionesRanking(){
+        int numeroJugadores = 8;
+        int[] arrayPuntuaciones = new int[numeroJugadores];
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < arrayPuntuaciones.length; i++) {
+            System.out.print("Ingresa la puntuación del jugador " + (i + 1) + ": ");
+            arrayPuntuaciones[i] = sc.nextInt();
+        }
+        Arrays.sort(arrayPuntuaciones);
+        System.out.println("Array original "+Arrays.toString(arrayPuntuaciones));
+        return arrayPuntuaciones;
+    }
+
     public static void main(String[] args) {
 
         /* 11. Crea un programa que cree dos arrays de enteros de tamaño 100. Luego introducirá
@@ -255,15 +286,7 @@ public class ParteDosVectores {
         tipo entero) y luego muestre las puntuaciones en orden descendente (de la más alta a
         la más baja). */
 
-/*         int numeroJugadores = 8;
-        int[] arrayPuntuaciones = new int[numeroJugadores];
-        Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < arrayPuntuaciones.length; i++) {
-            System.out.print("Ingresa la puntuación del jugador " + (i + 1) + ": ");
-            arrayPuntuaciones[i] = sc.nextInt();
-        }
-        Arrays.sort(arrayPuntuaciones);
-        System.out.println(Arrays.toString(arrayPuntuaciones)); */
+        reversaUnArrayOrdenado(pidePuntuacionesRanking());
 
         /* 20. Crea un programa que cree un array de tamaño 1000 y lo rellene con valores enteros
         aleatorios entre 0 y 99. Luego pedirá por teclado un valor N y se mostrará por pantalla
@@ -271,5 +294,4 @@ public class ParteDosVectores {
 
         //arrayCienIntEntre1Y100();
     }
-
 }

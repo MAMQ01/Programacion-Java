@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ParteTresVectores {
 
     public static void matriz1A25(){
-        int[][] matriz = new int[5][5];
+        int[][] matriz = new int[5][5];  
         int indice = 1;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
@@ -26,7 +26,6 @@ public class ParteTresVectores {
                 tablasUnoAlDiez[i-1][j] = i * (j + 1);
             }
         }
-    
         for (int i = 0; i < tablasUnoAlDiez.length; i++) {
             System.out.println(Arrays.toString(tablasUnoAlDiez[i]));
         }
@@ -46,7 +45,6 @@ public class ParteTresVectores {
         for (int fila = 0; fila < cantidadFilas; fila++) {
             for (int columna = 0; columna < cantidadColumnas; columna++) {
                 System.out.println("Introduzca el valor de la matriz en la fila: " + fila + " y la columna: " + columna);
-                System.out.println("");
                 array[fila][columna] = sc.nextInt();
                 if(array[fila][columna] > 0){
                     contadorMayores++;
@@ -74,7 +72,7 @@ public class ParteTresVectores {
             double notaMinima = Double.MAX_VALUE;
             double notaMedia = 0;
     
-            for (int asignatura = 0; asignatura < notasAlumno[alumno].length; asignatura++) {
+            for (int asignatura = 0; asignatura < notasAlumno.length; asignatura++) {
                 System.out.print("Ingrese la nota del Alumno " + (alumno + 1) + " para la Asignatura " + (asignatura + 1) + ": ");
                 notasAlumno[alumno][asignatura] = sc.nextInt();
     
@@ -91,39 +89,7 @@ public class ParteTresVectores {
         }
     }
 
-    public static void main(String[] args) {
-    /* 21. Crea un programa que cree una matriz de tamaño 5x5 que almacene los números del
-    1 al 25 y luego muestre la matriz por pantalla. */
-
-    //matriz1A25();
-
-    /* 22. Crea un programa que cree una matriz de 10x10 e introduzca los valores de las tablas
-    de multiplicar del 1 al 10 (cada tabla en una fila). Luego mostrará la matriz por
-    pantalla. */
-
-    //matrizTablaUnoADiez();
-
-    /* 23. Crea un programa que cree una matriz de tamaño NxM (tamaño introducido por
-    teclado) e introduzca en ella NxM valores (también introducidos por teclado). Luego
-    deberá recorrer la matriz y al final mostrar por pantalla cuántos valores son mayores
-    que cero, cuántos son menores que cero y cuántos son igual a cero. */
-
-    //descubreMayoresMenoresEIgualesACero();
-
-    /* 24. Necesitamos crear un programa para almacenar las notas de 4 alumnos (llamados
-    “Alumno 1”, “Alumno 2”, etc.) y 5 asignaturas. El usuario introducirá las notas por
-    teclado y luego el programa mostrará la nota mínima, máxima y media de cada
-    alumno. */
-
-    //notasAlumnos();
-
-    /* 25. Necesitamos crear un programa para registrar sueldos de hombres y mujeres de una
-    empresa y detectar si existe brecha salarial entre ambos. El programa pedirá por
-    teclado la información de N personas distintas (valor también introducido por teclado).
-    Para cada persona, pedirá su género (0 para varón y 1 para mujer) y su sueldo. Esta
-    información debe guardarse en una única matriz. Luego se mostrará por pantalla el
-    sueldo medio de cada género. */
-
+    public static void brechaSalarialPorGenero(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el número de personas: ");
         int numeroDePersonas = sc.nextInt();
@@ -161,5 +127,43 @@ public class ParteTresVectores {
         } else {
             System.out.println("No hay brecha salarial");
         }
+    }
+
+    public static void main(String[] args) {
+        
+        /* 21. Crea un programa que cree una matriz de tamaño 5x5 que almacene los números del
+        1 al 25 y luego muestre la matriz por pantalla. */
+
+        //matriz1A25();
+
+        /* 22. Crea un programa que cree una matriz de 10x10 e introduzca los valores de las tablas
+        de multiplicar del 1 al 10 (cada tabla en una fila). Luego mostrará la matriz por
+        pantalla. */
+
+        //matrizTablaUnoADiez();
+
+        /* 23. Crea un programa que cree una matriz de tamaño NxM (tamaño introducido por
+        teclado) e introduzca en ella NxM valores (también introducidos por teclado). Luego
+        deberá recorrer la matriz y al final mostrar por pantalla cuántos valores son mayores
+        que cero, cuántos son menores que cero y cuántos son igual a cero. */
+
+        //descubreMayoresMenoresEIgualesACero();
+
+        /* 24. Necesitamos crear un programa para almacenar las notas de 4 alumnos (llamados
+        “Alumno 1”, “Alumno 2”, etc.) y 5 asignaturas. El usuario introducirá las notas por
+        teclado y luego el programa mostrará la nota mínima, máxima y media de cada
+        alumno. */
+
+        //notasAlumnos();
+
+        /* 25. Necesitamos crear un programa para registrar sueldos de hombres y mujeres de una
+        empresa y detectar si existe brecha salarial entre ambos. El programa pedirá por
+        teclado la información de N personas distintas (valor también introducido por teclado).
+        Para cada persona, pedirá su género (0 para varón y 1 para mujer) y su sueldo. Esta
+        información debe guardarse en una única matriz. Luego se mostrará por pantalla el
+        sueldo medio de cada género. */
+
+        //brechaSalarialPorGenero();
+        
     }
 }
