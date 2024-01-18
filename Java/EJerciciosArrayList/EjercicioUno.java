@@ -1,6 +1,8 @@
 package EJerciciosArrayList;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class EjercicioUno {
@@ -40,11 +42,12 @@ public class EjercicioUno {
                     mostrarListaActual(arrayAlturas); 
                     System.out.println(arrayAlturas);
                     break;
-                case 'c': eliminarPorPosicion(0);
+                case 'c': 
+                    eliminarPorPosicion(arrayAlturas, pidePosicionAEliminar());
                     break;
-                case 'd': eliminarPorValor(0);
+                case 'd': eliminarPorValor(arrayAlturas, pideValorAEliminar());
                     break;
-                case 'e': ordenarLista(0);
+                case 'e': ordenarLista(arrayAlturas);
                     break;
                 case '0': System.exit(0);
                     break;
@@ -59,6 +62,7 @@ public class EjercicioUno {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la opcion que desea: ");
         char opcionSeleccionada = sc.nextLine().charAt(0);
+        sc.close();
         return opcionSeleccionada;
     }
 
@@ -66,6 +70,7 @@ public class EjercicioUno {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese su altura: ");
         Double altura = sc.nextDouble();
+        sc.close();
         return altura;
     }
 
@@ -84,33 +89,69 @@ public class EjercicioUno {
     }
 
     public static ArrayList<Double> anadirAltura(ArrayList<Double> arrayList, double alturaAlumnos){
-        System.out.println("Menu añadir altura");
+        System.out.println("Menú añadir altura");
         arrayList.add(alturaAlumnos);
         System.out.println("----------------------------"+arrayList.get(0));
         return arrayList;
     }
 
     public static void mostrarListaActual(ArrayList<Double> arrayAlturas){
-        System.out.println("Menu mostrarListaActual");
-        for (Double elemento : arrayAlturas) {
-            int contador = 0;
-            System.out.println("Este es el elemento #"+(contador+1)+" :"+elemento);
+        System.out.println("Menú mostrarListaActual");
+        int contador = 1;
+        for (int i = 0; i < arrayAlturas.size(); i++) {
+            System.out.println("Éste es el elemento #"+contador+" :"+arrayAlturas.get(i));
             contador++;
         }
     }
 
-    public static int eliminarPorPosicion(int posicionAEliminar){
-        System.out.println("Menu eliminarPosicion");
-        int cantidadEliminaciones=0;
-        return cantidadEliminaciones;
+    public static double eliminarPorPosicion(ArrayList<Double> arrayList, int posicionAEliminar){
+        System.out.println("Menú eliminarPosicion");
+        double arrayConPosicionEliminada = arrayList.remove(posicionAEliminar);
+        return arrayConPosicionEliminada;
     }
 
-    public static void eliminarPorValor(int alturaAlumnos){
+    public static int pidePosicionAEliminar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese la posición que desea eliminar: ");
+        int posicion = sc.nextInt();
+        if(posicion>0){
+            posicion--;
+        }else{
+            System.err.println("No tiene ningún elemento en su lista");
+        }
+        sc.close();
+        return posicion;
+    }
+
+    public static void eliminarPorValor(ArrayList<Double> arrayList, double elementoAEliminar) {
         System.out.println("Menu eliminarPorValor");
+        int contadorElementosBorrados = 0;
+        ListIterator<Double> iterador = arrayList.listIterator();
+        while (iterador.hasNext()) {
+            double elementoActual = iterador.next();
+            if (elementoActual == elementoAEliminar) {
+                contadorElementosBorrados++;
+                iterador.remove();
+                System.out.println("El elemento #"+contadorElementosBorrados+":"+elementoAEliminar);
+            }
+        }
+        System.out.println("Lista después de eliminar por valor: " + arrayList);
     }
 
-    public static void ordenarLista(int alturaAlumnos){
-        System.out.println("Menu ordenarLista");
+    public static double pideValorAEliminar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduzca el numero que quiere eliminar: ");
+        double aEliminar = sc.nextDouble();
+        sc.close();
+        return aEliminar;
+    }
+
+    public static ArrayList<Double> ordenarLista(ArrayList<Double> arrayList){
+        System.out.println("Menú ordenarLista");
+        System.out.println("Mostrando el array list antes: "+arrayList);
+        Collections.sort(arrayList);
+        System.out.println("Mostrando el array list después: "+arrayList);
+        return arrayList;
     }
 
 }
