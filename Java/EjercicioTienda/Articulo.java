@@ -1,16 +1,13 @@
 package EjercicioTienda;
 
 public class Articulo {
-    private static int identificador = 0;
+    private int identificador;
     private String nombre;
     private double precioVentaCliente;
     private double precioCompraProveedor;
-    private final static double IVA=0.21;
+    private final static int IVA = 21;
     private int stock;
     private static int contadorArticulos = 0;
-
-
-    
 
     
 
@@ -25,7 +22,7 @@ public class Articulo {
     //Creo el constructor con una validacion de que los datos recibidos en el constructor son correctos; precio de venta > 0 y precio de venta, stock >= 0
     
     public Articulo(String nombre, double precioVentaCliente, double precioCompraProveedor, int stock) {
-        Articulo.identificador = identificador++;
+        this.identificador = ++contadorArticulos;
         this.nombre = nombre;
         if (precioCompraProveedor > precioVentaCliente) {
             System.err.println("No puede ser menor el precio de venta al cliente que el precio de compra al proveedor");
@@ -33,7 +30,6 @@ public class Articulo {
         this.precioVentaCliente = precioVentaCliente;
         this.precioCompraProveedor = precioCompraProveedor;
         this.stock = stock;
-        contadorArticulos++;
         if (stock < 0) {
             System.err.println("El stock debe ser mayor o igual a cero");
         }
@@ -59,9 +55,41 @@ public class Articulo {
     public void setPrecioCompraProveedor(double precioCompraProveedor) {
         this.precioCompraProveedor = precioCompraProveedor;
     }
-    public static double getIva() {
-        return IVA;
+    public int getStock() {
+        return stock;
+    }
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
+
+    //Método vender articulo recibe como parametro la cantidad debe validar si fue exitosa o no la venta y reducir el stock
+    public boolean vender(int cantidadAVender){
+        if (cantidadAVender>0 && stock>=cantidadAVender) {
+            stock-=cantidadAVender;
+            return true;
+        } else {
+            System.err.println("No fué exitosa su compra");
+            return false;
+        }
+    }
+
+    //Método comprar articulo recibe como parametro la cantidad debe validar si fue exitosa o no la compra y aumentar el stock
+    public boolean comprar(int cantidadAComprar){
+        if (cantidadAComprar>0) {
+            stock+=cantidadAComprar;
+            return true;
+        } else {
+            System.err.println("No fué exitosa su venta");
+            return false;
+        }
+    }
     
+    //Método publico que devuelva un String con la informacion del articulo, probablemente con un toString DE UNA SOLA LINEA
+    @Override
+    public String toString() {
+        return "Articulo [id=" + identificador + ", nombre=" + nombre + ", precioVentaCliente=" + precioVentaCliente + ", precioCompraProveedor="
+                + precioCompraProveedor + ", IVA="+ Articulo.IVA + ", stock=" + stock + "]";
+    }
+
 }
