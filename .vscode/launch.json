@@ -9,6 +9,13 @@
             "name": "EjercicioCuatro",
             "request": "launch",
             "mainClass": "EJerciciosArrayList.EjercicioCuatro",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioCuatro",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.EjercicioCuatro",
             "projectName": "Programacion_1e6b09c6"
         },
         {

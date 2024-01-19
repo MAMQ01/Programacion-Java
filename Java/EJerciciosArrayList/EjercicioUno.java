@@ -40,7 +40,6 @@ public class EjercicioUno {
                     break;
                 case 'b': 
                     mostrarListaActual(arrayAlturas); 
-                    System.out.println(arrayAlturas);
                     break;
                 case 'c': 
                     eliminarPorPosicion(arrayAlturas, pidePosicionAEliminar());
@@ -62,7 +61,6 @@ public class EjercicioUno {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la opcion que desea: ");
         char opcionSeleccionada = sc.nextLine().charAt(0);
-        sc.close();
         return opcionSeleccionada;
     }
 
@@ -110,16 +108,19 @@ public class EjercicioUno {
         return arrayConPosicionEliminada;
     }
 
-    public static int pidePosicionAEliminar(){
+    public static int pidePosicionAEliminar() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese la posición que desea eliminar: ");
-        int posicion = sc.nextInt();
-        if(posicion>0){
+        int posicion;
+        do {
+            System.out.println("Ingrese la posición que desea eliminar: ");
+            posicion = sc.nextInt();
+            if (posicion <= 0) {
+                System.err.println("Posición inválida. Debe ser mayor que 0.");
+            }
+        } while (posicion <= 0);
+        if (posicion > 0) {
             posicion--;
-        }else{
-            System.err.println("No tiene ningún elemento en su lista");
         }
-        sc.close();
         return posicion;
     }
 

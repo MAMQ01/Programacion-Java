@@ -13,6 +13,8 @@ public class EjercicioTres {
         Productos productoTres = new Productos("Buzo", 8);
         Productos productoCuatro = new Productos("Jean", 16);
         Productos productoCinco = new Productos("Camiseta", 20);
+        Productos productoSeis = new Productos("Camiseta", 20);
+
     
         ArrayList<Productos> arrayList = new ArrayList<>();
         arrayList.add(productoUno);
@@ -30,6 +32,8 @@ public class EjercicioTres {
         eliminarPorPosicion(arrayList, pidePosicionAEliminar());
         eliminarPorPosicion(arrayList, pidePosicionAEliminar());
         arrayList.removeAll(arrayList);
+        mostrarListaActual(arrayList);
+        insertaObjetoEnMedioDeLaLista(arrayList, productoSeis);
         mostrarListaActual(arrayList);
     }
 
