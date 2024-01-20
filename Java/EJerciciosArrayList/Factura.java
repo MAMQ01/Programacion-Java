@@ -119,8 +119,7 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "Factura [numeroIdentificador=" + numeroIdentificador + ", numeroCliente=" + numeroCliente
-                + ", fechaAlta=" + fechaAlta + ", listaDeItems=" + listaDeItems + "]";
+        return "Factura [numeroIdentificador=" + numeroIdentificador + ", numeroCliente=" + numeroCliente + ", fechaAlta=" + fechaAlta + ", listaDeItems=" + listaDeItems + "]";
     }
 
     public static String pideDescripcion(){

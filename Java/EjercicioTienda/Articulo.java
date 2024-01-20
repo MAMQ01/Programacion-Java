@@ -5,7 +5,7 @@ public class Articulo {
     private String nombre;
     private double precioVentaCliente;
     private double precioCompraProveedor;
-    private final static int IVA = 21;
+    public final static double IVA = 1.21;
     private int stock;
     private static int contadorArticulos = 0;
 
@@ -44,7 +44,7 @@ public class Articulo {
         return nombre;
     }
     public double getPrecioVentaCliente() {
-        return precioVentaCliente;
+        return precioVentaCliente*IVA;
     }
     public void setPrecioVentaCliente(double precioVentaCliente) {
         this.precioVentaCliente = precioVentaCliente;
