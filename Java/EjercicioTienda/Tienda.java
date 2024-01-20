@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tienda {
-    static ArrayList<Articulo> arrayListArticulos = new ArrayList<>();
+    static ArrayList<Articulo> inventario = new ArrayList<>();
     static ArrayList<Articulo> articulosVendidos = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -17,12 +17,12 @@ public class Tienda {
         //Creando instancias de Articulo
         Articulo articuloUno = new Articulo("Zapatos",50, 5, 30);
         Articulo articuloDos = new Articulo("Jean",40, 5, 20);
-        Articulo articuloTres = new Articulo("Camiseta", 7, 7, 4);
+        Articulo articuloTres = new Articulo("Camiseta", 27, 7, 4);
 
         //Añadiendo articulos al ArrayList de tipo Articulo
-        arrayListArticulos.add(articuloUno);
-        arrayListArticulos.add(articuloDos);
-        arrayListArticulos.add(articuloTres);
+        inventario.add(articuloUno);
+        inventario.add(articuloDos);
+        inventario.add(articuloTres);
 
 
         menu();
@@ -43,17 +43,21 @@ public class Tienda {
                         System.out.println("---------------------------------------------------------------------------");
                         System.out.println("----------  MOSTRANDO TODO EL LISTADO DE ARTICULOS DE LA TIENDA  ----------");
                         System.out.println("---------------------------------------------------------------------------");
-                        mostrarDescripcionArticulos(arrayListArticulos);
+                        mostrarDescripcionArticulos(inventario);
                     break;
                     case 2:
                         System.out.println("---------------------------------------------------------------------------");
                         System.out.println("-----------------------  HACIENDO VENTA A CLIENTE  ------------------------");
                         System.out.println("---------------------------------------------------------------------------");
                         venderACliente(3, 1, "Manuel");
-                        venderACliente(2, 1, "Juan");
+                    break;
+                    case 3:
+                        System.out.println("---------------------------------------------------------------------------");
+                        System.out.println("-----------------------  HACIENDO COMPRA A PROVEEDOR ----------------------");
+                        System.out.println("---------------------------------------------------------------------------");
                     break;
                     default:
-                        break;
+                    break;
                 }      
             } while (true);
     }
@@ -87,54 +91,33 @@ public class Tienda {
     //La opción 2 permitirá realizar una venta. Pedirá los identificadores y cantidades
     //de los artículos deseados además del nombre del cliente. Mostrará el precio total y
     //pedirá confirmar la venta.
-    /* public static boolean venderACliente(int identificador, int cantidadAComprar, String nombreCliente){
-        double precioTotal = 0;
-        boolean confirmarVenta = false;
-        double subtotal = 0;
-        int existeEnListaVendidos = 0;
-        for (Articulo articulo : arrayListArticulos) {
-            if (identificador==articulo.getIdentificador()) {
-                articulosVendidos.add(articulo);
-                precioTotal += articulo.getPrecioVentaCliente();
-                confirmarVenta = articulo.vender(cantidadAComprar);
-            }
-        }
-        if (confirmarVenta) {
-            System.out.println("La compra de " + nombreCliente + " fue: ");
-            for (Articulo articulo : articulosVendidos) {
-                System.out.println(articulo.toString());
-            }
-            System.out.println("Precio total: " + precioTotal);
-        } else {
-            System.out.println("No se pudo completar la venta.");
-        }
-        articulosVendidos.clear();
-        return confirmarVenta;
-    } */
 
     public static boolean venderACliente(int identificador, int cantidadAComprar, String nombreCliente){
         double precioTotal = 0;
         boolean confirmarVenta = false;
         double subtotal = 0;
         int seRepite = 0;
-        for (Articulo articulo : arrayListArticulos) {
+        for (Articulo articulo : inventario) {
             if (identificador==articulo.getIdentificador()) {
                 articulosVendidos.add(articulo);
-                precioTotal = precioTotal + articulo.getPrecioVentaCliente();
+                subtotal = subtotal + articulo.getPrecioVentaCliente();
                 confirmarVenta = articulo.vender(cantidadAComprar);
                 for (Articulo vendido : articulosVendidos) {
-                    if(articulosVendidos.contains(articulo) && vendido.equals(articulo)){
+                    if(articulo.equals(vendido)){
                         seRepite++;
                     }
                 }
             }
+            precioTotal=precioTotal+subtotal;
         }
         if (confirmarVenta) {
             System.out.println("La compra de " + nombreCliente + " fue: ");
             for (Articulo articulo : articulosVendidos) {
                 System.out.println(articulo);
             }
-            System.out.println("Precio total: " + precioTotal+ "unidades: "+seRepite);
+            precioTotal = precioTotal * seRepite;
+            subtotal = precioTotal/1.21;
+            System.out.println("Precio subtotal: " + subtotal + " unidades: " + seRepite + " el precio Total es de: " + precioTotal);
         } else {
             System.out.println("No se pudo completar la venta.");
         }

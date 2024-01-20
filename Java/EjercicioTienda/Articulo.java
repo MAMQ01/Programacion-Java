@@ -88,8 +88,8 @@ public class Articulo {
     //Método publico que devuelva un String con la informacion del articulo, probablemente con un toString DE UNA SOLA LINEA
     @Override
     public String toString() {
-        return "Articulo [id=" + identificador + ", nombre=" + nombre + ", precioVentaCliente=" + precioVentaCliente + ", precioCompraProveedor="
-                + precioCompraProveedor + ", IVA="+ Articulo.IVA + ", stock=" + stock + "]";
+        return "Articulo [id=" + getIdentificador() + ", nombre=" + getNombre() + ", precioVentaCliente=" + getPrecioVentaCliente() + ", precioCompraProveedor="
+                + getPrecioCompraProveedor() + ", IVA="+ Articulo.IVA + ", stock=" + stock + "]";
     }
 
 }
