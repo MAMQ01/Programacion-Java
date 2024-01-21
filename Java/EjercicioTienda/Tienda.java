@@ -9,16 +9,15 @@ public class Tienda {
 
     public static void main(String[] args) {
 
-        //Creando instancias de Articulo
-        Articulo articuloUno = new Articulo("Zapatos",50, 5, 30, "Nike");
-        Articulo articuloDos = new Articulo("Jean",40, 5, 20, "Jhon");
-        Articulo articuloTres = new Articulo("Camiseta", 27, 7, 4, "Carlos");
+        System.out.println("Debes decidir cual es el producto inicial que vas a tener en tu tienda :D");
+        anadirArticulo();
 
-        //Añadiendo articulos al ArrayList de tipo Articulo
-        inventario.add(articuloUno);
-        inventario.add(articuloDos);
-        inventario.add(articuloTres);
-
+        if ((inventario.get(0).getStock())>0) {
+            System.out.println("Ya tienes inventario!");
+        } else {
+            System.out.println("Debes comprar un inventario para iniciar tu Tienda :(");
+            comprarAProveedor();
+        }
         menu();
     }
 
@@ -28,6 +27,8 @@ public class Tienda {
     public static void menu(){
             do {
                 System.out.println("""
+
+                    Seleccione una opción:
                     1. Mostrar artículos.
                     2. Venta a cliente.
                     3. Compra a proveedor.
@@ -54,7 +55,10 @@ public class Tienda {
                         comprarAProveedor();
                     break;
                     case 4:
-                        anadirArticulo();
+                        System.out.println("---------------------------------------------------------------------------");
+                        System.out.println("-----------------------  ENTRANDO AL SUBMENU GESTIÓN ----------------------");
+                        System.out.println("---------------------------------------------------------------------------");
+                        submenuGestionArticulos();
                     break;
                     default:
                         System.err.println("Valor inválido");
@@ -179,7 +183,7 @@ public class Tienda {
      */
     public static void comprarAProveedor() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese identificador del artículo:");
+        System.out.println("Ingrese identificador del artículo a comprar");
         int identificador = sc.nextInt();
         Articulo articulo = buscarArticuloPorIdentificador(identificador);
         if (articulo != null) {
@@ -207,6 +211,50 @@ public class Tienda {
         }
     }
 
+    public static void submenuGestionArticulos(){{
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        do {
+            System.out.println("""
+
+                Seleccione una opción:
+                1. Añadir artículo
+                2. Editar artículo
+                3. Eliminar artículo
+                4. Volver
+                    """);
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("-------------------  ENTRANDO AL MENU AÑADIR ARTICULO  --------------------");
+                    System.out.println("---------------------------------------------------------------------------");
+                    anadirArticulo();
+                break;
+                case 2:
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("-------------------  ENTRANDO AL MENU EDITAR ARTICULO  --------------------");
+                    System.out.println("---------------------------------------------------------------------------");
+                    editarArticulo();
+                break;
+                case 3:
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("------------------  ENTRANDO AL MENU ELIMINAR ARTICULO  -------------------");
+                    System.out.println("---------------------------------------------------------------------------");
+                    eliminarArticulo();
+                break;
+                case 4:
+                    System.out.println("---------------------------------------------------------------------------");
+                    System.out.println("----------------------  ENTRANDO AL MENU PRINCIPAL  -----------------------");
+                    System.out.println("---------------------------------------------------------------------------");
+                break;
+                default:
+                    System.out.println("Opción no válida (1-4)");
+            }
+        } while (opcion != 4);
+    }}
+
     /**
      * Añade articulo por identificador
      */
@@ -220,6 +268,7 @@ public class Tienda {
         double precioCompraProveedor = sc.nextDouble();
         System.out.println("Ingrese stock:");
         int stock = sc.nextInt();
+        sc.nextLine();
         System.out.println("Ingrese el proveedor:");
         String nombreProveedor = sc.nextLine();
 
