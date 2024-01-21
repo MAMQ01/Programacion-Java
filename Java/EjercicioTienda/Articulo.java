@@ -99,7 +99,7 @@ public class Articulo {
     @Override
     public String toString() {
         return "Articulo [id=" + getIdentificador() + ", nombre=" + getNombre() + ", precioVentaCliente=" + getPrecioVentaCliente() + ", precioCompraProveedor="
-                + getPrecioCompraProveedor() + ", IVA="+ Articulo.IVA + ", stock=" + stock + "]";
+                + getPrecioCompraProveedor() + ", IVA="+ ((Articulo.IVA)*100) + ", stock=" + stock + "]";
     }
 
 }

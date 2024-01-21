@@ -11,7 +11,8 @@ public class Tienda {
 
         System.out.println("Debes decidir cual es el producto inicial que vas a tener en tu tienda :D");
         anadirArticulo();
-
+        System.out.println("Los articulos de su tienda son: ");
+        mostrarDescripcionArticulos(inventario);
         if ((inventario.get(0).getStock())>0) {
             System.out.println("Ya tienes inventario!");
         } else {
@@ -272,10 +273,13 @@ public class Tienda {
         System.out.println("Ingrese el proveedor:");
         String nombreProveedor = sc.nextLine();
 
-        Articulo nuevoArticulo = new Articulo(nombre, precioVentaCliente, precioCompraProveedor, stock, nombreProveedor);
-        inventario.add(nuevoArticulo);
-
-        System.out.println("Artículo añadido con éxito.");
+        if(precioCompraProveedor>precioVentaCliente){
+            System.err.println("Su artículo no se creó exitosamente porque el precio de compra es menor al precio de venta al cliente");
+        } else {
+            Articulo nuevoArticulo = new Articulo(nombre, precioVentaCliente, precioCompraProveedor, stock, nombreProveedor);
+            inventario.add(nuevoArticulo);
+            System.out.println("Artículo añadido con éxito.");
+        }
     }
 
     /**
