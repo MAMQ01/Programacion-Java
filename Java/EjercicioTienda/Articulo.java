@@ -5,23 +5,21 @@ public class Articulo {
     private String nombre;
     private double precioVentaCliente;
     private double precioCompraProveedor;
-    public final static double IVA = 1.21;
+    public final static double IVA = 0.21;
     private int stock;
     private static int contadorArticulos = 0;
+    private String nombreProveedor;
 
+     /**
+      * Contructor de inventario
+      * @param nombre
+      * @param precioVentaCliente
+      * @param precioCompraProveedor
+      * @param stock
+      * @param nombreProveedor
+      */
     
-
-    /**
-     * 
-     * @param identificador Identificador único
-     * @param nombre Articulo a introducir
-     * @param precioVentaCliente Precio de venta al cliente
-     * @param precioCompraProveedor Precio de compra al proveedor
-     * @param stock Stock mayor a 0
-     */
-    //Creo el constructor con una validacion de que los datos recibidos en el constructor son correctos; precio de venta > 0 y precio de venta, stock >= 0
-    
-    public Articulo(String nombre, double precioVentaCliente, double precioCompraProveedor, int stock) {
+    public Articulo(String nombre, double precioVentaCliente, double precioCompraProveedor, int stock, String nombreProveedor) {
         this.identificador = ++contadorArticulos;
         this.nombre = nombre;
         if (precioCompraProveedor > precioVentaCliente) {
@@ -29,7 +27,6 @@ public class Articulo {
         }
         this.precioVentaCliente = precioVentaCliente;
         this.precioCompraProveedor = precioCompraProveedor;
-        this.stock = stock;
         if (stock < 0) {
             System.err.println("El stock debe ser mayor o igual a cero");
         }
@@ -44,7 +41,7 @@ public class Articulo {
         return nombre;
     }
     public double getPrecioVentaCliente() {
-        return precioVentaCliente*IVA;
+        return (precioVentaCliente*IVA)+precioVentaCliente;
     }
     public void setPrecioVentaCliente(double precioVentaCliente) {
         this.precioVentaCliente = precioVentaCliente;
@@ -61,9 +58,19 @@ public class Articulo {
     public void setStock(int stock) {
         this.stock = stock;
     }
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
+    }
 
 
-    //Método vender articulo recibe como parametro la cantidad debe validar si fue exitosa o no la venta y reducir el stock
+    /**
+     * Método Verifica si hay stock suficiente y el cliente quiere comprar almenos una unidad. Si cumple, actualiza el stock
+     * @param cantidadAVender Cantidad que desea vender al cliente
+     * @return boolean 
+     */
     public boolean vender(int cantidadAVender){
         if (cantidadAVender>0 && stock>=cantidadAVender) {
             stock-=cantidadAVender;
@@ -74,7 +81,11 @@ public class Articulo {
         }
     }
 
-    //Método comprar articulo recibe como parametro la cantidad debe validar si fue exitosa o no la compra y aumentar el stock
+    /**
+     * Método Verifica si hay stock suficiente y la Tienda quiere comprar almenos una unidad. Si cumple, actualiza el stock
+     * @param cantidadAComprar Cantidad que desea comprar al proveedor
+     * @return
+     */
     public boolean comprar(int cantidadAComprar){
         if (cantidadAComprar>0) {
             stock+=cantidadAComprar;
@@ -85,7 +96,6 @@ public class Articulo {
         }
     }
     
-    //Método publico que devuelva un String con la informacion del articulo, probablemente con un toString DE UNA SOLA LINEA
     @Override
     public String toString() {
         return "Articulo [id=" + getIdentificador() + ", nombre=" + getNombre() + ", precioVentaCliente=" + getPrecioVentaCliente() + ", precioCompraProveedor="
