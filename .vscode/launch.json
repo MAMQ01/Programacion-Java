@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjercicioNueve",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.EjercicioNueve",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioNueve",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.EjercicioNueve",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "Tienda",
             "request": "launch",
             "mainClass": "EjercicioTienda.Tienda",
