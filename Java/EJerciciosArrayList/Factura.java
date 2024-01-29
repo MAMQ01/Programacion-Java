@@ -5,38 +5,49 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Factura {
+    public static Scanner sc = new Scanner(System.in);
     private int numeroIdentificador;
     private int numeroCliente;
     private Date fechaAlta;
-    private ArrayList<ItemFactura> listaDeItems;
-    public static final double IVA = 1.21;
+    private ArrayList<LineaFactura> lineaFacturas;
+    public static final int IVA = 21;
 
 
     public Factura(int numeroIdentificador, int numeroCliente) {
         this.numeroIdentificador = numeroIdentificador;
         this.numeroCliente = numeroCliente;
-        this.listaDeItems = new ArrayList<>();
+        this.lineaFacturas = new ArrayList<>();
         fechaAlta = new Date();
     }
+ 
 
-    public static char pideOpcionChar(){
-        Scanner sc = new Scanner(System.in);
+    public int getNumeroIdentificador() {
+        return numeroIdentificador;
+    }
+
+    public void setNumeroIdentificador(int numeroIdentificador) {
+        this.numeroIdentificador = numeroIdentificador;
+    }
+
+    public int getNumeroCliente() {
+        return numeroCliente;
+    }
+
+
+
+    public void setNumeroCliente(int numeroCliente) {
+        this.numeroCliente = numeroCliente;
+    }
+
+
+
+    public static char pideOpcionChar() {
         System.out.println("Ingrese la opcion que desea: ");
-        char opcionSeleccionada = sc.nextLine().charAt(0);
-        return opcionSeleccionada;
+        String input = sc.next();
+        sc.nextLine();
+        return input.charAt(0);
     }
-
-    public static ArrayList<Factura> anadirFacturas(int identificadorCliente , int numeroCliente, Factura itemFactura){
-        System.out.println("Menú añadir Instancia de Factura");
-        ArrayList<Factura> arrayFactura = new ArrayList<>();
-        arrayFactura.add(itemFactura);
-        return arrayFactura;
-    }
-
-    public void agregarItem(String descripcion, double precioUnitario, int cantidadUnidades) {
-        ItemFactura nuevoItem = new ItemFactura(descripcion, precioUnitario, cantidadUnidades);
-        this.listaDeItems.add(nuevoItem);
-    }
+    
 
     public static void opcionesASeleccionar(){
         System.out.println(
@@ -50,47 +61,33 @@ public class Factura {
             0) SALIR
             """);
     }
-
-    public static int pideNumeroCliente(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el numero cliente");
-        int numeroCliente = sc.nextInt();
-        return numeroCliente;
-    }
-
     public static int pideNumeroIdentificadorCliente(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el numero identificador cliente");
         int numeroCliente = sc.nextInt();
+        sc.nextLine();
         return numeroCliente;
     }
 
-    public static ArrayList<Factura> mostrarListaFacturas(ArrayList<Factura> arrayList){
-        for (Factura factura : arrayList) {
-            System.out.println(factura);
-        }
-        return arrayList;
+    public static int pideNumeroCliente(){
+        System.out.println("Ingrese el numero cliente");
+        int numeroCliente = sc.nextInt();
+        sc.nextLine();
+        return numeroCliente;
     }
 
-    public static ArrayList<ItemFactura> mostrarItemsFactura(ArrayList<ItemFactura> arrayList){
-        for (ItemFactura factura : arrayList) {
-            System.out.println(factura);
-        }
-        return arrayList;
-    }
 
-    public static ArrayList<Factura> eliminarPorPosicionFactura(ArrayList<Factura> arrayListFactura, int posicionAEliminar){
+    public static ArrayList<LineaFactura> eliminarPorPosicionLineaFactura(ArrayList<LineaFactura> lineaFacturas, int posicionAEliminar){
         System.out.println("Menú eliminarPosicion");
-        if (posicionAEliminar >= 0 && posicionAEliminar < arrayListFactura.size()) {
-            arrayListFactura.remove(posicionAEliminar);
+        if (posicionAEliminar >= 0 && posicionAEliminar < lineaFacturas.size()) {
+            lineaFacturas.remove(posicionAEliminar);
         } else {
             System.out.println("Posición inválida. No se pudo eliminar.");
         }
-        return arrayListFactura;
+        return lineaFacturas;
     }
 
 
-    public static ArrayList<ItemFactura> eliminarPorPosicionItem(ArrayList<ItemFactura> arrayListItem, int posicionAEliminar) {
+    public static ArrayList<LineaFactura> eliminarPorPosicionItem(ArrayList<LineaFactura> arrayListItem, int posicionAEliminar) {
         System.out.println("Menú eliminarPosicion");
         if (posicionAEliminar >= 0 && posicionAEliminar < arrayListItem.size()) {
             arrayListItem.remove(posicionAEliminar);
@@ -101,7 +98,6 @@ public class Factura {
     }
 
     public static int pidePosicionAEliminar() {
-        Scanner sc = new Scanner(System.in);
         int posicion;
         do {
             System.out.println("Ingrese la posición que desea eliminar: ");
@@ -115,42 +111,38 @@ public class Factura {
         }
         return posicion;
     }
-    
-
-    @Override
-    public String toString() {
-        return "Factura [numeroIdentificador=" + numeroIdentificador + ", numeroCliente=" + numeroCliente + ", fechaAlta=" + fechaAlta + ", listaDeItems=" + listaDeItems + "]";
-    }
 
     public static String pideDescripcion(){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la descripción del producto: ");
         String descripcion = sc.nextLine();
         return descripcion;
     }
 
     public static double pidePrecioUnitario() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el precio unitario del producto: ");
         return sc.nextDouble();
     }
 
     public static int pideCantidadUnidades() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese la cantidad de unidades del producto: ");
         return sc.nextInt();
     }
 
-    public double calcularImporteTotal() {
-        double total = 0;
-        for (ItemFactura item : listaDeItems) {
-            total += item.getImporteTotal();
-        }
-        return total * IVA;
+    public void agregarItem(LineaFactura item) {
+        this.lineaFacturas.add(item);
     }
 
-    public void agregarItem(ItemFactura item) {
-        this.listaDeItems.add(item);
+
+    @Override
+    public String toString() {
+        return "Factura [numeroIdentificador=" + numeroIdentificador + ", numeroCliente=" + numeroCliente
+                + ", fechaAlta=" + fechaAlta + ", lineaFacturas=" + lineaFacturas + "]";
     }
+
+
+    public Factura() {
+    }
+
+    
 
 }

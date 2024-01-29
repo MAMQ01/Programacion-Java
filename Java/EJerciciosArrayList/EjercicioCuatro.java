@@ -3,11 +3,11 @@ package EJerciciosArrayList;
 import java.util.ArrayList;
 
 public class EjercicioCuatro {
+    public static ArrayList<Factura> listaDeFacturas = new ArrayList<>();
+    ArrayList<LineaFactura> lineaFacturas = new ArrayList<>();
+    Factura facturaUno = new Factura();
+
     public static void main(String[] args) {
-
-        ArrayList<Factura> arrayFacturas = new ArrayList<>();
-        ArrayList<ItemFactura> arrayListItems = new ArrayList<>();
-
         /* Ejercicio 4 – Factura
         Diseñar una clase Factura que consta de:
         • Número identificador: lo proporciona el usuario en el alta de la factura.
@@ -29,50 +29,49 @@ public class EjercicioCuatro {
         eliminar una línea, solicitaremos el número de línea.
         Hacer también un programa con un menú para gestionar una factura (alta,
         añadir/eliminar líneas, mostrar factura) Nota: pensar en método toString() para
-        LíneaFactura. */
-        
-        mostrarMenu(arrayFacturas, arrayListItems);
+        LíneaFactura. */;
+        mostrarMenu();
     }
 
-    public static void mostrarMenu(ArrayList<Factura> arrayFacturas, ArrayList<ItemFactura> arrayListItems){
-        char opcionSeleccionada = 'f';
+    public static void mostrarMenu() {
+        char opcionSeleccionada;
+        boolean salir = false;
+    
         do {
             Factura.opcionesASeleccionar();
             opcionSeleccionada = Factura.pideOpcionChar();
+    
             switch (opcionSeleccionada) {
                 case 'a':
-                    System.out.println("Realizando el Alta Factura");
-                    Factura nuevaFactura = new Factura(Factura.pideNumeroIdentificadorCliente(), Factura.pideNumeroCliente());
-                    arrayFacturas.add(nuevaFactura);
-                    Factura.mostrarListaFacturas(arrayFacturas);
-                    System.out.println("-----------------------");
-                    ItemFactura creandoItem = new ItemFactura(Factura.pideDescripcion(), Factura.pidePrecioUnitario(), Factura.pideCantidadUnidades());
-                    nuevaFactura.agregarItem(creandoItem);
+                    Factura facturaUno = new Factura(Factura.pideNumeroIdentificadorCliente(), Factura.pideNumeroCliente());
+                    listaDeFacturas.add(facturaUno);
+                    System.out.println(listaDeFacturas);
                     break;
                 case 'b':
-                    System.out.println("Añadiendo un item a la factura");
-                    ItemFactura item = new ItemFactura(Factura.pideDescripcion(), Factura.pidePrecioUnitario(), Factura.pideCantidadUnidades());
-                    arrayListItems.add(item);
+                    String descripcion = Factura.pideDescripcion();
+                    Double precioUnitario = Factura.pidePrecioUnitario();
+                    int cantidadUnidades = Factura.pideCantidadUnidades();
+                    LineaFactura nuevaLineaFactura = new LineaFactura(descripcion, precioUnitario, cantidadUnidades);
+                    // Obtén la última factura agregada
+                    Factura ultimaFactura = listaDeFacturas.get(listaDeFacturas.size() - 1);
+                    // Agrega la nueva línea a la última factura
+                    ultimaFactura.agregarItem(nuevaLineaFactura);
+                    System.out.println("Línea de factura agregada correctamente.");
+                    System.out.println(ultimaFactura);
                     break;
                 case 'c':
-                    System.out.println("Mostrando array List de las Facturas");
-                    Factura.mostrarListaFacturas(arrayFacturas);
-                    System.out.println("Mostrando arrayList Items");
-                    Factura.mostrarItemsFactura(arrayListItems);
+                    
                     break;
                 case 'd':
-                    System.out.println("Eliminando Linea/Item por posicion");
-                    Factura.eliminarPorPosicionItem(arrayListItems, Factura.pidePosicionAEliminar());
-                    System.out.println("Mostrando arrayListItems DESPUES DE ELIMINAR-------------");
-                    Factura.mostrarItemsFactura(arrayListItems);
                     break;
                 case '0':
-                    System.exit(0);
+                    salir = true;
                     break;
                 default:
                     System.err.println("Introdujo una opción no válida.");
                     break;
             }
-        } while (opcionSeleccionada != '0');
+        } while (!salir);
     }
+    
 }
