@@ -15,7 +15,7 @@ public class EjercicioMinas {
     public static void main(String[] args) {
         EjercicioMinas mina = new EjercicioMinas();
         int[][] mapaMinas = mina.mapaMinas();
-        boolean estadoCasilla = mina.tirada(mapaMinas, 3, 2);
+        boolean estadoCasilla = mina.tirada(mapaMinas, 0, 0);
         mina.mostrarMatriz(mapaMinas, estadoCasilla);
         mina.rellenarMatriz(mapaMinas);
     }
@@ -88,14 +88,35 @@ public class EjercicioMinas {
     }
 
     public void rellenarMatriz(int[][] mapaMinas){
-        int contadorMinas=1;
+        System.out.println("Entrando a rellenar matriz");
         for (int i = 0; i < mapaMinas.length; i++) {
             for (int j = 0; j < mapaMinas[i].length; j++) {
-                System.out.println("Contador minas");
-                mapaMinas[i][j]=contadorMinas;
-                System.out.print(mapaMinas[i][j]);
+                System.out.print(mapaMinas[i][j] + " ");
             }
             System.out.println();
         }
+        cuentaMinas(mapaMinas);
+    }
+
+    public int cuentaMinas(int[][] mapaMinas){
+        int contadorMinas=0;
+        int contadorAuxiliar=0;
+        for (int i = 0; i < mapaMinas.length; i++) {
+            for (int j = 0; j < mapaMinas[i].length; j++) {
+                contadorAuxiliar++;
+                if (j < mapaMinas.length -1 && mapaMinas[i][j+1] == -1 && mapaMinas[i][j] == 0){
+                    System.out.println("En la pocision " + contadorAuxiliar + " a la derecha hay mina");
+                    contadorMinas++;
+                }
+                if (j < mapaMinas.length -1 && i < mapaMinas[j].length -1 && mapaMinas[i+1][j+1] == -1 && mapaMinas[i][j] == 0){
+                    System.out.println("En la pocision " + contadorAuxiliar + " a la derecha y abajo hay mina");
+                    contadorMinas++;
+                } // Hasta aca funciona correctamente la validacion a la derecha y abajo a la derecha
+                if (i < mapaMinas.length +1 && mapaMinas[i-1][j] == -1 && mapaMinas[i][j] == 0){
+                    System.out.println("En la pocision " + contadorAuxiliar + " a la izquierda hay mina");
+                }
+            }
+        }
+        return contadorMinas;
     }
 }
