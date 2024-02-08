@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EjercicioDos {
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         
         /* Ejercicio 2- Divisores
         Realizar un programa que tenga una función a la que se le pasa un entero y devuelva un
         ArrayList con todos sus divisores. */
 
-        Scanner sc = new Scanner(System.in);
         int numero = 0;
         do {
             System.out.println("De cuál número desea ver los posibles divisores enteros? : ");

@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjercicicioHerencia",
+            "request": "launch",
+            "mainClass": "Unidad9Java.EjercicicioHerencia",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "pruebaTres",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.pruebaTres",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "pruebaDos",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.pruebaDos",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioCinco",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.EjercicioCinco",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Prueba",
+            "request": "launch",
+            "mainClass": "EJerciciosArrayList.Prueba",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
             "name": "EjercicioMinas",
             "request": "launch",
             "mainClass": "EJerciciosArrayList.EjercicioMinas",

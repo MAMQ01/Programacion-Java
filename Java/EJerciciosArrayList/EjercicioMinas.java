@@ -104,17 +104,32 @@ public class EjercicioMinas {
         for (int i = 0; i < mapaMinas.length; i++) {
             for (int j = 0; j < mapaMinas[i].length; j++) {
                 contadorAuxiliar++;
-                if (j < mapaMinas.length -1 && mapaMinas[i][j+1] == -1 && mapaMinas[i][j] == 0){
-                    System.out.println("En la pocision " + contadorAuxiliar + " a la derecha hay mina");
-                    contadorMinas++;
+                if (mapaMinas[i][j] == 0){
+                    //A la izquierda
+                    if ((i>0 && j>0) && mapaMinas[i][j-1] == -1){
+                        System.out.println("En la pocision " + contadorAuxiliar + " a la izquierda hay mina");
+                        contadorMinas++;
+                    }
+                    //Arriba a la izquierda
+                    if ((i>0 && j>0) && mapaMinas[i-1][j-1] == -1){
+                        System.out.println("En la pocision " + contadorAuxiliar + " arriba a la izquierda hay mina");
+                        contadorMinas++;
+                    }
+                    //A la derecha
+                    if (j < mapaMinas.length -1 && mapaMinas[i][j+1] == -1 ){
+                        System.out.println("En la pocision " + contadorAuxiliar + " a la derecha hay mina");
+                        contadorMinas++;
+                    }
+                    //Abajo a la derecha
+                    if (j < mapaMinas.length -1 && i < mapaMinas[j].length -1 && mapaMinas[i+1][j+1] == -1){
+                        System.out.println("En la pocision " + contadorAuxiliar + " a la derecha y abajo hay mina");
+                        contadorMinas++;
+                    }
                 }
-                if (j < mapaMinas.length -1 && i < mapaMinas[j].length -1 && mapaMinas[i+1][j+1] == -1 && mapaMinas[i][j] == 0){
-                    System.out.println("En la pocision " + contadorAuxiliar + " a la derecha y abajo hay mina");
-                    contadorMinas++;
-                } // Hasta aca funciona correctamente la validacion a la derecha y abajo a la derecha
-                if (i < mapaMinas.length +1 && mapaMinas[i-1][j] == -1 && mapaMinas[i][j] == 0){
+                 // Hasta aca funciona correctamente la validacion a la derecha y abajo a la derecha
+                /* if (j < mapaMinas.length -1 && mapaMinas[i-1][j] == -1 && mapaMinas[i][j] == 0){
                     System.out.println("En la pocision " + contadorAuxiliar + " a la izquierda hay mina");
-                }
+                } */
             }
         }
         return contadorMinas;
