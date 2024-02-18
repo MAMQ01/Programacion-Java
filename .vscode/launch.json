@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProgramaFigura3D_v4$Main",
+            "request": "launch",
+            "mainClass": "Unidad9Java.maratonEjercicios.ProgramaFigura3D_v4$Main",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "DatosEmpresa",
+            "request": "launch",
+            "mainClass": "Unidad9Java.ejercicioEmpresa.DatosEmpresa",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "prueba$Main",
+            "request": "launch",
+            "mainClass": "Unidad9Java.prueba$Main",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
             "name": "EjercicicioHerencia",
             "request": "launch",
             "mainClass": "Unidad9Java.EjercicicioHerencia",
