@@ -1,9 +1,9 @@
 package Unidad9Java.maratonEjercicios;
 
-class Esfera_v3 implements Figura3D_v4 {
+class Esfera_v4 implements Figura3D_v4 {
     private double radio;
 
-    public Esfera_v3(double radio) {
+    public Esfera_v4(double radio) {
         this.radio = radio;
     }
 
