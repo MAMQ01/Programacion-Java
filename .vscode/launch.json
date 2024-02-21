@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProgramaBanco",
+            "request": "launch",
+            "mainClass": "Unidad9Java.ejercicioBanco.ProgramaBanco",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "Inventario",
             "request": "launch",
             "mainClass": "Unidad9Java.macotas.Inventario",

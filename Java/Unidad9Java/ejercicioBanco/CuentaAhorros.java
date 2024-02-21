@@ -1,22 +1,29 @@
 package Unidad9Java.ejercicioBanco;
 
 public class CuentaAhorros extends CuentaBancaria{
+    private final double SALDOMINIMO = 2000;
 
     public CuentaAhorros(String iban, int saldo) {
         super(iban, saldo);
-        //TODO Auto-generated constructor stub
     }
 
     @Override
-    public void consultaSaldo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'consultaSaldo'");
+    public double consultaSaldo() {
+        return getSaldo();
     }
 
     @Override
-    public void calcularIntereses() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularIntereses'");
+    public double calcularIntereses() {
+        if (getSaldo() >= SALDOMINIMO) {
+            return getSaldo()*(getInteresAnualBasico()*2);
+        } else {
+            return getSaldo()*(getInteresAnualBasico()/2);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " CuentaAhorros [SALDOMINIMO=" + SALDOMINIMO + "]";
     }
     
 }

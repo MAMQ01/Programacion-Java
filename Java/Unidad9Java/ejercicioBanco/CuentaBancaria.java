@@ -1,24 +1,23 @@
 package Unidad9Java.ejercicioBanco;
 
 abstract public class CuentaBancaria {
-    protected final double interesAnualBasico;
+    protected static final double INTERESANUALBASICO = 0.1;
     private String iban;
-    private int saldo;
+    private double saldo;
 
-    public CuentaBancaria(String iban, int saldo) {
-        this.interesAnualBasico = 0.1;
+    public CuentaBancaria(String iban, double saldo) {
         this.iban = iban;
         this.saldo = saldo;
     }
 
-    abstract public void consultaSaldo();
-    abstract public void calcularIntereses();
+    abstract public double consultaSaldo();
+    abstract public double calcularIntereses();
 
-    public void ingresarDinero(int cantidad){
+    public void ingresarDinero(double cantidad){
         anadir(cantidad);
     }
 
-    public void retirarDinero(int cantidad){
+    public void retirarDinero(double cantidad){
         if (getSaldo()>=cantidad) {
             anadir(-cantidad);
         } else {
@@ -26,11 +25,11 @@ abstract public class CuentaBancaria {
         }
     }
 
-    private void anadir(int cantidad){
+    private void anadir(double cantidad){
         this.saldo = saldo + cantidad;
     }
 
-    public void tranferir(int cantidad, CuentaBancaria cuentaDestino){
+    public void tranferir(double cantidad, CuentaBancaria cuentaDestino){
         if (getSaldo()>0) {
             retirarDinero(cantidad);
             cuentaDestino.ingresarDinero(cantidad);
@@ -47,12 +46,23 @@ abstract public class CuentaBancaria {
         this.iban = iban;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public double getInteresAnualBasico() {
+        return INTERESANUALBASICO;
+    }
+
+    @Override
+    public String toString() {
+        return "CuentaBancaria [iban=" + iban + ", saldo=" + saldo + "]";
     };
+
+    
 
 }
