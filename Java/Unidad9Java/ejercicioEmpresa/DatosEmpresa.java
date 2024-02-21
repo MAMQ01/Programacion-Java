@@ -8,16 +8,16 @@ public class DatosEmpresa {
     private int telefono;
     private String direccion;
     private ArrayList<Empleado> empleados = new ArrayList<>();
-    double totalSalarioBruto = 0;
-    double totalSalarioNeto = 0;
-
+    private double totalSalarioBruto = 0;
+    private double totalSalarioNeto = 0;
+    
     public DatosEmpresa(String nOMBRE, int cIF, int telefono, String direccion) {
         NOMBRE = nOMBRE;
         CIF = cIF;
         this.telefono = telefono;
         this.direccion = direccion;
     }
-
+    
     public String getNOMBRE() {
         return NOMBRE;
     }
@@ -39,22 +39,6 @@ public class DatosEmpresa {
     public void setEmpleados(ArrayList<Empleado> empleados) {
         this.empleados = empleados;
     }
-
-    public static void main(String[] args) {
-        DatosEmpresa empresa = new DatosEmpresa("TCC", 1234, 55555555, "Calle luna");
-        Empleado empleadoUno = new Empleado("Juanito", "12345678J", 1000, 18, 123456789, "calle sol");
-        empresa.anadirEmpleado(empleadoUno);
-        Empleado empleadoDos = new Empleado("Jenny", "12345678A", 10000, 40, 123456789, "calle solario");
-        empresa.anadirEmpleado(empleadoDos);
-        //empresa.eliminarEmpleado(empleadoUno);
-        //System.out.println(empresa.getEmpleados());
-        /* System.out.println("Total nominas en Bruto: " + empresa.totalSalarioBrutoEmpleados(empresa.empleados));
-        System.out.println("Total nominas en Neto: " + empresa.totalSalarioNetoEmpleados(empresa.empleados)); */
-        empresa.totalSalarioBrutoEmpleados(empresa.empleados);
-        empresa.totalSalarioNetoEmpleados(empresa.empleados);
-        System.out.println(empresa.toString());
-    }
-    
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
     }
@@ -82,11 +66,35 @@ public class DatosEmpresa {
         return totalSalarioNeto;
     }
 
+    public static void main(String[] args) {
+
+        DatosEmpresa empresa = new DatosEmpresa("TCC", 1234, 55555555, "Calle luna");
+        //Lo cree para agregar más facil otros empleados
+        ArrayList<Empleado> empleados = empresa.getEmpleados();
+
+        Empleado empleadoUno = new Empleado("Juanito", "12345678J", 1000, 18, 123456789, "calle sol");
+        empresa.anadirEmpleado(empleadoUno);
+        Empleado empleadoDos = new Empleado("Jenny", "12345678A", 10000, 40, 123456789, "calle solario");
+
+        empresa.anadirEmpleado(empleadoDos);
+        empresa.totalSalarioBrutoEmpleados(empresa.empleados);
+        empresa.totalSalarioNetoEmpleados(empresa.empleados);
+
+        //System.out.println(empresa.toString());
+        empresa.mostrarEmpleados();
+    }
+
     @Override
     public String toString() {
         return "DatosEmpresa [NOMBRE=" + NOMBRE + ", CIF=" + CIF + ", telefono=" + telefono + ", direccion=" + direccion
                 + ", empleados=" + empleados + ", totalSalarioBruto=" + totalSalarioBruto + ", totalSalarioNeto="
                 + totalSalarioNeto + "]";
+    }
+
+    public void mostrarEmpleados(){
+        for (Empleado empleado : empleados) {
+            System.out.println(empleado);
+        }
     }
     
 }
