@@ -1,5 +1,5 @@
-package Unidad9Java;
-import Unidad9Java.Vehiculo.Color;
+package Unidad9Java.ejercicio;
+import Unidad9Java.ejercicio.Vehiculo.Color;
 
 public class EjercicicioHerencia {
     public static void main(String[] args) {

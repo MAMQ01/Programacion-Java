@@ -1,4 +1,6 @@
-package Unidad9Java;
+package Unidad9Java.ejercicio;
+
+import Unidad9Java.ejercicio.Vehiculo.Color;
 
 public class Coche extends Vehiculo {
     

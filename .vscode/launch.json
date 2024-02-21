@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProgramaAgenda",
+            "request": "launch",
+            "mainClass": "Unidad9Java.agenda.ProgramaAgenda",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "DatosEmpresa",
             "request": "launch",
             "mainClass": "Unidad9Java.ejercicioEmpresa.DatosEmpresa",

@@ -1,4 +1,4 @@
-package Unidad9Java;
+package Unidad9Java.ejercicio;
 
 
 public class Vehiculo {
