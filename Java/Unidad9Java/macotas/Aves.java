@@ -3,8 +3,8 @@ package Unidad9Java.macotas;
 import java.time.LocalDate;
 
 abstract class Aves extends Mascotas {
-    String pico;
-    Boolean vuela;
+    private String pico;
+    private Boolean vuela;
 
     public Aves(String nombre, LocalDate fechaNacimiento, String pico, Boolean vuela) {
         super(nombre, fechaNacimiento);

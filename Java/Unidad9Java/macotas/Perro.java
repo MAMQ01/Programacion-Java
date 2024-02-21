@@ -3,8 +3,8 @@ package Unidad9Java.macotas;
 import java.time.LocalDate;
 
 public class Perro extends Mascotas{
-    String raza;
-    int pulgas;
+    private String raza;
+    private int pulgas;
     
 
     public Perro(String nombre, LocalDate fechaNacimiento, String raza, int pulgas) {

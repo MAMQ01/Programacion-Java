@@ -3,8 +3,8 @@ package Unidad9Java.macotas;
 import java.time.LocalDate;
 
 public class Loro extends Aves {
-    String origen;
-    boolean habla;
+    private String origen;
+    private boolean habla;
 
     public Loro(String nombre, LocalDate fechaNacimiento, String pico, Boolean vuela, String origen, boolean habla) {
         super(nombre, fechaNacimiento, pico, vuela);
