@@ -1,6 +1,6 @@
-package Unidad9Java.agenda;
+package Unidad9Java.agenda_v2;
 
-public class Contacto {
+abstract class Contacto {
 
     private String nombre;
     private int telefono;
@@ -47,6 +47,11 @@ public class Contacto {
     }
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacto [nombre=" + nombre + ", telefono=" + telefono + "]";
     }
     
 }

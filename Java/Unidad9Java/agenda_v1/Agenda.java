@@ -1,4 +1,4 @@
-package Unidad9Java.agenda;
+package Unidad9Java.agenda_v1;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,12 @@ public class Agenda {
     }
 
     public boolean anyadirContacto(Contacto c){
-        if (lista.add(c)) {
+        if (!existeContacto(c)) {
+            lista.add(c);
+            System.out.println("El contacto: " + c.getNombre() + " fué añadido exitosamente");
             return true;
         }
+        System.out.println("No se agregó el contacto: " + c.getNombre() + " porque ya existe");
         return false;
     }
 
@@ -38,17 +41,17 @@ public class Agenda {
 
     public void listarContactos(){
         for (Contacto contacto : lista) {
-            System.out.println(contacto);
+            System.out.println(contacto.toString());
         }
     }
     
     public int buscaContacto(String nombre){
         for (Contacto contacto : lista) {
-            if (contacto.getNombre()==nombre) {
-                return nombre.indexOf(nombre);
+            if (contacto.getNombre().equals(nombre)) {
+                return lista.indexOf(contacto);
             }
         }
-        return 10;
+        return -1;
     }
     
 }
