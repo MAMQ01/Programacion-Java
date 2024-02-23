@@ -3,6 +3,7 @@ package Unidad9Java.agenda_v2;
 public class ContactoEmpresa extends Contacto {
 
     private String sitioWeb;
+    
     /**
      * Crea un objeto ContactoEmpresa
      * @param nombre nombre unico de la empresa
@@ -34,6 +35,7 @@ public class ContactoEmpresa extends Contacto {
         result = prime * result + ((sitioWeb == null) ? 0 : sitioWeb.hashCode());
         return result;
     }
+
     /**
      * Compara dos objetos, si son iguales en las condiciones del padre (solo nombre) y las de esta clase (sitioWeb).
      * @param obj El objeto a comparar vs este objeto.

@@ -6,12 +6,6 @@ public class Agenda {
 
     protected ArrayList<Contacto> lista = new ArrayList<>();
 
-    public ArrayList<Contacto> getLista() {
-        return lista;
-    }
-    public void setLista(ArrayList<Contacto> lista) {
-        this.lista = lista;
-    }
     
     /**
      * Añade el contacto pasado como argumento a la agenda.
@@ -26,6 +20,13 @@ public class Agenda {
         }
         System.out.println("No se agregó el contacto: " + c.getNombre() + " porque ya existe");
         return false;
+    }
+    
+    public ArrayList<Contacto> getLista() {
+        return lista;
+    }
+    public void setLista(ArrayList<Contacto> lista) {
+        this.lista = lista;
     }
 
     /**
@@ -42,6 +43,7 @@ public class Agenda {
         }
         return false;
     }
+    
     /**
      * Comprueba si existe el contacto pasado como parametro.
      * @param c contacto a buscar en la agenda.
@@ -61,6 +63,7 @@ public class Agenda {
             System.out.println(contacto.toString());
         }
     }
+
     /**
      * Busca por nombre el contacto en la agenda.
      * @param nombre nombre del contacto a buscar.
