@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ejercicioAjedrez.src.App",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ejercicioAjedrez.src.App",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "ProgramaAgenda",
             "request": "launch",
             "mainClass": "Unidad9Java.agenda_v2.ProgramaAgenda",
