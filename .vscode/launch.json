@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ejercicioUnoAOcho",
+            "request": "launch",
+            "mainClass": "Unidad10Java.ejercicioUnoAOcho",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "ejercicioUno",
+            "request": "launch",
+            "mainClass": "Unidad10Java.ejercicioUno",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "App",
             "request": "launch",
             "mainClass": "ejercicioAjedrez.src.App",
