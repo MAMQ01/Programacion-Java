@@ -21,5 +21,11 @@ public class Estacion extends Propiedad {
     public static int getValorEstacion() {
         return VALOR_ESTACION;
     }
+
+    @Override
+    public void comprar(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'comprar'");
+    }
     
 }

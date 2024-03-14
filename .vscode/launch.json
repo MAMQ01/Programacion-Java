@@ -6,6 +6,69 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Fiesta",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioCuatro.Fiesta",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "Fiesta",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioTres.Fiesta",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Parking",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioUno.Parking",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Parking",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioDos.Parking",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Parking",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioDos.Parking",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "Parking",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioUno.Parking",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "Biblioteca",
+            "request": "launch",
+            "mainClass": "Unidad10Java.ejercicioNueve.Biblioteca",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioUnoAOcho",
+            "request": "launch",
+            "mainClass": "Unidad10Java.ejercicioUnoAOcho.EjercicioUnoAOcho",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "EjercicioUnoAOcho",
+            "request": "launch",
+            "mainClass": "Unidad10Java.EjercicioUnoAOcho",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
             "name": "ejercicioUnoAOcho",
             "request": "launch",
             "mainClass": "Unidad10Java.ejercicioUnoAOcho",
