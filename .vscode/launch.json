@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Biblioteca",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioBiblioteca.gpt.Biblioteca",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Biblioteca",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioBiblioteca.gpt.Biblioteca",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "ProgramaTemperaturas",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioOcho.ProgramaTemperaturas",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "ProgramaSeis",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioSeis.ProgramaSeis",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "ProgramaSeis",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioSeis.ProgramaSeis",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Jugador",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioSeis.Jugador",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Fiesta",
+            "request": "launch",
+            "mainClass": "Unidad11Java.ejercicioCuatro.Fiesta",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
             "name": "Fiesta",
             "request": "launch",
             "mainClass": "Unidad11Java.ejercicioCuatro.Fiesta",
