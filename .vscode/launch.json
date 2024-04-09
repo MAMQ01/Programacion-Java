@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MiPrograma",
+            "request": "launch",
+            "mainClass": "Unidad11Java.completos.bibliotecaProfe.MiPrograma",
+            "projectName": "Programacion_1e6b09c6"
+        },
+        {
+            "type": "java",
+            "name": "MiPrograma",
+            "request": "launch",
+            "mainClass": "Unidad11Java.completos.bibliotecaProfe.MiPrograma",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Fiesta_v2",
+            "request": "launch",
+            "mainClass": "Unidad11Java.completos.ejercicioTres.Fiesta_v2",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Parking_v2",
+            "request": "launch",
+            "mainClass": "Unidad11Java.completos.ejercicioDos.Parking_v2",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
+            "name": "Parking_v2",
+            "request": "launch",
+            "mainClass": "Unidad9Java.ejerciciosC.ejercicioDos.Parking_v2",
+            "projectName": "Programacion_10851a9f"
+        },
+        {
+            "type": "java",
             "name": "Biblioteca",
             "request": "launch",
             "mainClass": "Unidad11Java.ejercicioBiblioteca.gpt.Biblioteca",
