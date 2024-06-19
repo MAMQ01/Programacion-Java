@@ -1,0 +1,6 @@
+nombre,edad,correoElectronico
+Juan,30,juan@ejemplo.com
+Maria,25,mariaejemplo.com 
+Pedro,35,pedro@ejemplo.com
+Juan,30000
+Ana,-10,ana@ejemplo.org
