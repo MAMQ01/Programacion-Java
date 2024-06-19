@@ -235,7 +235,7 @@ public class ParteDosVectores {
         valores del primer array al segundo array en orden inverso, y mostrar ambos por
         pantalla. */
 
-        //dosArraysCienInt();
+        dosArraysCienInt();
 
         /* 12. Crea un programa que cree un array de 10 enteros y luego muestre el siguiente
         menú con distintas opciones:
@@ -285,7 +285,7 @@ public class ParteDosVectores {
         tipo entero) y luego muestre las puntuaciones en orden descendente (de la más alta a
         la más baja). */
 
-        reversaUnArrayOrdenado(pidePuntuacionesRanking());
+        //reversaUnArrayOrdenado(pidePuntuacionesRanking());
 
         /* 20. Crea un programa que cree un array de tamaño 1000 y lo rellene con valores enteros
         aleatorios entre 0 y 99. Luego pedirá por teclado un valor N y se mostrará por pantalla
